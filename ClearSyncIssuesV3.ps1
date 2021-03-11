@@ -1,4 +1,4 @@
-﻿$o = New-Object -comobject outlook.application
+$o = New-Object -comobject outlook.application
 $n = $o.GetNamespace(“MAPI”)
 $Account = $n.Folders | ? { $_.Name -eq "$env:UserName" + "@glotmansimpson.com" };
 
@@ -16,7 +16,7 @@ if ($Count1 -eq 0){
 $temp = 1
 }
 while ($SyncIssues.Items.Count -ge 0){
- $global:temp++
+$temp = $temp + 1
 try{
 	For ($i = ($Count1);$i -ge 1;$i--) {
    		$SyncIssues.Remove($i)
